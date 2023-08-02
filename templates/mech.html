@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mechanical Department</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #3066b1;
+      border: none;
+      color: white;   
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0a3952;
+    } 
+  </style>
+</head>
+<body>
+  <h1>Course Management</h1>
+{{msg}}
+  <h2>Create Course</h2>
+  <form submit="/mech" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="department">Department:</label>
+      <select id="department" name="department" required>
+        <option value="">Select Department</option>
+        <option value="IT">IT</option>
+        <option value="Mechanical">Mechanical</option>
+        <option value="Civil">Civil</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="courseName">Course Name:</label>
+      <input type="text" id="courseName" name="coursename" required>
+    </div>
+
+    <div class="form-group">
+      <label for="fees">Course Fees:</label>
+      <input type="text" id="fees" name="fees" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="3"></textarea>
+    </div>
+
+    <input type="submit" value="Add New Course Course">
+  </form>
+
+  <h2>Mechanical Courses List</h2>
+  <table>
+    <tr>
+      <th>Course Name</th>
+      <th>Fees</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    {% for course in courses %}
+    <tr>
+      <td>{{course.coursename}}</td>
+      <td>{{course.fees}}</td>
+      <td>{{course.description}}</td>
+      <td>
+        <a href="/edit/{{course.id}}/{{course.department}}" style="text-decoration: none;">Edit</a> |
+        <a href="/delete/{{course.id}}/{{course.department}}" style="text-decoration: none;">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <form action="/back">
+    <input type="submit" value="Back">
+    <input type="submit" value="Home" formaction="/">
+  </form>
+</body>
+</html>

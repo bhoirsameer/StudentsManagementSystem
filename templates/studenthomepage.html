@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IT Department</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+       
+    a,input[type="submit"] {
+      background-color: #3066b1;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    a,input[type="submit"]:hover {
+      background-color: #0a3952;
+    }
+    th {
+      background-color: #6390cf;
+    }
+    td {
+      background-color: rgb(97, 225, 180);
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <center><h1>Your Course</h1></center>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Date Of Joining</th>
+      <th>Course</th>
+      <th>Action</th>
+    </tr>
+    {% for u in user %}
+    <tr>
+      <td>{{u.name}}</td>
+      <td>{{u.email}}</td>
+      <td>{{u.date}}</td>
+      <td>{{u.course}}</td>
+      <td><a href="/upgrade_course/{{u.Department}}/{{email}}">Upgrade</a></td>
+    </tr><br>
+    
+    {% endfor %}
+    </table>
+    <a href="/">HOME</a>    <a href="/dwn_atten/{{email}}">Download Your Attendence</a>
+<br><br>
+</body>
+</html>

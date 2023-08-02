@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IT Department</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+       
+    input[type="submit"] {
+      background-color: #3066b1;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0a3952;
+    }
+    th {
+      background-color: #6390cf;
+    }
+    td {
+      background-color: rgb(97, 225, 180);
+    }
+  </style>
+</head>
+<body>
+  <center><h1>Your Students</h1></center>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Education</th>
+      <th>Course</th>
+    </tr>
+    {% for enqry in enquries %}
+    <tr>
+      <td>{{enqry.name}}</td>
+      <td>{{enqry.email}}</td>
+      <td>{{enqry.education}}</td>
+      <td>{{enqry.course}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+<br><br>
+  <form action="/">
+    <input type="submit" value="Home">
+    <input type="submit" value="Attendence" formaction='/attendence/{{department}}'>
+  </form>
+</body>
+</html>
