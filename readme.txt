@@ -37,5 +37,5 @@ step 6:
 
 
 Step 7:
-    trainers can login by the username and passord given at 4 th step
+    trainers can login by the username and passord given at 4th step
     
