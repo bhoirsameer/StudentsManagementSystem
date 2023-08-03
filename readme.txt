@@ -1,19 +1,41 @@
-For admin
-username = user         password = 123
+Follow the steps tom run project
+step 1:
+    run this commands on terminal--->
+    Py manage.py makemigrations
+    Py manage.py migrate
 
-trainers login
-username = IT         password = 123
-username = Civil         password = 123
-username = Mechanical         password = 123
 
-After launching the project, the initial step involves the admin logging in to the system. 
-Once logged in, the admin gains access to functionalities like adding courses for different 
-departments and adding trainers corresponding to each department. The courses added by the 
-admin will be showcased to students who come for inquiries.
+Step 2:
+    run a command on terminal--->Py manage.py createsuperuser
 
-On the homepage, students can click on the "Enquiry" section, where they provide their basic 
-details. Afterward, students can view all available courses and enroll in the ones they are 
-interested in. If they log in to the system, they will have the option to upgrade their enrolled
-courses.
 
-In the trainer's login area, trainers can view information about all students.
+Step 3:
+    run a command on terminal--->Py manage.py runserver
+    now add (admin) in url in browser
+    login using username and password (superuser username and password) 
+
+
+Step 4:
+    After login click on add link in host and create new username and password
+    This username and password are for admin login 
+    Click on trainers here we have to create username an passwords for each department ---> Note I kept this usernames fix
+    so add below details as it is
+    a : username=IT              password=123
+    b : username=Mechanical      password=123
+    c : username=Civil           password=123
+
+
+Step 5:
+    Run a command on terminal--->Py manage.py runserver
+    now click on admin link give username and passwords
+    after login in manage courses ther are 3 departments IT ,
+    Mech , Civil at at least 3 courses in each department
+
+
+step 6:
+    Now add the trainers for each department and click on home
+
+
+Step 7:
+    trainers can login bu the username and passord given at 4 th step
+    
